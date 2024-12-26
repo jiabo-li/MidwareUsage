@@ -1,0 +1,2 @@
+docker run -d -p 6379:6379 -v /app/rd1:/bitnami/redis/data -e REDIS_REPLICATION_MODE=master -e REDIS_PASSWORD=123456 --network mynet --name redis01 bitnami/redis
+docker run -d -p 6380:6379 -v /app/rd2:/bitnami/redis/data -e REDIS_REPLICATION_MODE=slave -e REDIS_MASTER_HOST=redis01 -e REDIS_PASSWORD=123456 -e REDIS_MASTER_PASSWORD=123456 --network mynet --name redis02 bitnami/redis
